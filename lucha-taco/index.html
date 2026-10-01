@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lucha Taco — Mexico City Street Tacos</title>
+<style>
+:root{--pink:#E8317A;--red:#E23B2B;--yel:#FFC531;--blue:#1C3DB8;--ink:#1A1A1A;--cream:#FFF7EA;--disp:Impact,"Haettenschweiler","Arial Narrow Bold","Arial Black",sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+main,section,.paper{overflow-x:clip}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:var(--blue);font-size:16px;line-height:1.5;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.disp{font-family:var(--disp);text-transform:uppercase;letter-spacing:.5px;line-height:.9;font-weight:400}
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+:focus-visible{outline:3px solid var(--yel);outline-offset:3px}
+
+/* NAV */
+nav{position:absolute;top:0;left:0;right:0;z-index:20}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:84px}
+.logo{display:flex;align-items:center;gap:10px;color:#fff;font-family:var(--disp);font-size:24px;letter-spacing:1px}
+.logo svg{width:44px;height:44px}
+.links{display:flex;gap:8px}
+.links a{color:#fff;background:rgba(28,61,184,.85);padding:10px 18px;border-radius:999px;font-size:14px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;min-height:44px;display:flex;align-items:center}
+.links a:hover{background:var(--yel);color:var(--ink)}
+.cta{background:var(--yel);color:var(--ink);padding:12px 20px;border-radius:999px;font-weight:800;font-size:14px;text-transform:uppercase;box-shadow:4px 4px 0 var(--ink);border:2px solid var(--ink);min-height:44px;display:flex;align-items:center}
+.cta:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.burger{display:none;background:none;border:0;color:#fff;width:44px;height:44px;cursor:pointer}
+
+/* HERO */
+.hero{position:relative;min-height:760px;background-color:#D81B6A;background-image:linear-gradient(90deg,rgba(0,0,0,.14) 2px,transparent 2px),linear-gradient(0deg,rgba(0,0,0,.14) 2px,transparent 2px);background-size:120px 120px;overflow:hidden;display:flex;align-items:center}
+.hero .wrap{position:relative;width:100%;padding-top:100px;padding-bottom:80px;display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center}
+.hero-photo{position:relative;justify-self:end;width:100%;max-width:540px}
+.hero-photo img{width:100%;aspect-ratio:1;object-fit:cover;border:4px solid var(--ink);border-radius:16px;box-shadow:12px 12px 0 var(--ink);transform:rotate(3deg)}
+.kicker{display:inline-block;background:var(--blue);color:#fff;font-weight:800;font-size:14px;letter-spacing:1px;text-transform:uppercase;padding:6px 14px;border-radius:999px;transform:rotate(-3deg);margin-bottom:20px;border:2px solid var(--ink)}
+.hero h1{font-size:clamp(84px,14vw,190px);color:var(--yel);-webkit-text-stroke:3px var(--ink);text-shadow:8px 8px 0 var(--ink)}
+.hero h1 span{display:block;color:#fff}
+.hero p{color:#fff;max-width:420px;font-size:18px;margin:28px 0 32px;font-weight:500}
+.hero .btns{display:flex;gap:16px;flex-wrap:wrap}
+.btn-ghost{color:#fff;border:2px solid #fff;padding:12px 22px;border-radius:999px;font-weight:800;font-size:14px;text-transform:uppercase;min-height:44px;display:flex;align-items:center}
+.btn-ghost:hover{background:#fff;color:var(--ink)}
+.badge{position:absolute;left:-50px;bottom:-30px;width:150px;height:150px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;text-align:center;border:3px solid var(--ink);box-shadow:6px 6px 0 var(--ink);font-family:var(--disp);font-size:26px;line-height:1;transform:rotate(12deg);z-index:3}
+.badge small{display:block;font-family:system-ui,sans-serif;font-size:12px;font-weight:700;letter-spacing:1px;margin-top:6px}
+.badge-ring{display:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.badge-ring,.marquee-track{animation:none!important}}
+
+/* torn edge */
+.torn{display:block;width:100%;height:40px;position:relative;z-index:4}
+.torn-top{margin-top:-39px}
+.torn-bot{margin-bottom:-1px}
+
+/* INTRO */
+.paper{background:var(--cream);position:relative}
+.intro{padding:40px 0 64px}
+.pills{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:56px}
+.pills a{border:2px solid var(--ink);border-radius:999px;padding:10px 26px;font-weight:800;text-transform:uppercase;font-size:14px;letter-spacing:.5px;background:#fff;min-height:44px;display:flex;align-items:center}
+.pills a:nth-child(1){background:var(--yel);transform:rotate(-4deg)}
+.pills a:nth-child(2){transform:rotate(3deg)}
+.pills a:nth-child(3){transform:rotate(-2deg)}
+.pills a:nth-child(4){transform:rotate(4deg)}
+.pills a:hover{background:var(--pink);color:#fff}
+.intro-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:center}
+.intro-grid p{font-size:22px;line-height:1.45;max-width:620px;font-weight:500}
+.hl{background:var(--yel);padding:0 6px;font-weight:800}
+.doodle{width:100%;max-width:300px;justify-self:center}
+
+/* marquee */
+.marquee{background:var(--pink);border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);overflow:hidden;transform:rotate(-1.5deg);margin:0 -20px;position:relative;z-index:2}
+.marquee-track{display:flex;gap:40px;white-space:nowrap;padding:14px 0;animation:mq 25s linear infinite;width:max-content}
+.marquee-track span{font-family:var(--disp);font-size:34px;color:#fff;text-transform:uppercase}
+.marquee-track span.s{color:var(--yel)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* MENU */
+.menu{padding:80px 0 72px}
+.sec-head{display:flex;align-items:flex-end;gap:24px;margin-bottom:40px;flex-wrap:wrap}
+.sec-head h2{font-size:clamp(72px,10vw,128px);color:var(--ink)}
+.sec-head p{border-left:4px solid var(--pink);padding-left:16px;max-width:340px;font-size:16px;margin-bottom:12px;color:#444}
+.tabs{display:flex;gap:8px;margin-left:auto;margin-bottom:12px}
+.tabs button{border:2px solid var(--ink);background:#fff;border-radius:999px;padding:8px 18px;font-weight:800;font-size:14px;text-transform:uppercase;cursor:pointer;min-height:44px}
+.tabs button.on{background:var(--ink);color:#fff}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.card{text-align:center}
+.card .ph{border-radius:14px;overflow:hidden;border:3px solid var(--ink);aspect-ratio:1/1.12;background:#ddd;transition:transform .25s}
+.card:nth-child(odd) .ph{transform:rotate(-2deg)}
+.card:nth-child(even) .ph{transform:rotate(2deg)}
+.card:hover .ph{transform:rotate(0) scale(1.03)}
+.card img{width:100%;height:100%;object-fit:cover}
+.card h3{margin-top:20px;display:inline-block;background:var(--yel);border:2px solid var(--ink);border-radius:999px;padding:6px 18px;font-size:14px;text-transform:uppercase;letter-spacing:.5px}
+.card .desc{font-size:14px;color:#555;margin:10px auto 4px;max-width:230px}
+.card .price{font-family:var(--disp);font-size:28px;color:var(--pink)}
+.menu-more{text-align:center;margin-top:48px}
+.menu-more a{display:inline-flex}
+
+/* PROMOS */
+.promo-hero{position:relative;background:var(--blue) url(images/deals-hero.svg) center 30%/cover;height:560px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.promo-hero h2{font-size:clamp(110px,22vw,300px);color:rgba(255,255,255,.88);mix-blend-mode:overlay;letter-spacing:4px}
+.promo-hero h2.solid{position:absolute;color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.9);mix-blend-mode:normal}
+.promo-hero .note{position:absolute;right:32px;bottom:28px;color:#fff;font-size:14px;background:rgba(0,0,0,.45);padding:8px 14px;border-radius:8px}
+.promos{padding:64px 0 80px}
+.pgrid{display:grid;grid-template-columns:1.1fr 1fr;grid-template-rows:auto auto;gap:24px}
+.pcard{border-radius:16px;border:3px solid var(--ink);overflow:hidden;position:relative;min-height:260px;padding:28px;display:flex;flex-direction:column;justify-content:flex-end;color:#fff}
+.pcard h3{font-size:clamp(40px,4.5vw,60px)}
+.pcard p{font-size:16px;max-width:360px;margin-top:10px;font-weight:500}
+.p-loyal{grid-row:span 2;background:var(--pink);justify-content:space-between}
+.stamps{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;max-width:380px;margin:24px 0}
+.stamp{aspect-ratio:1;border-radius:50%;border:3px dashed rgba(255,255,255,.7);display:grid;place-items:center}
+.stamp.on{background:var(--yel);border:3px solid var(--ink)}
+.stamp.on svg{width:60%;height:60%}
+.stamp.free{background:#fff;color:var(--pink);font-family:var(--disp);font-size:18px;border:3px solid var(--ink)}
+.p-lunch{background:linear-gradient(0deg,rgba(0,0,0,.75),rgba(0,0,0,.05) 70%),url(images/quesabirria.svg) center/cover}
+.p-lunch .time{position:absolute;top:24px;right:24px;background:var(--yel);color:var(--ink);font-family:var(--disp);font-size:26px;padding:6px 14px;border-radius:8px;border:2px solid var(--ink);transform:rotate(4deg)}
+.p-tues{background:linear-gradient(0deg,rgba(28,61,184,.92),rgba(28,61,184,.2) 75%),url(images/drinks.svg) center/cover}
+.p-tues .big{position:absolute;top:18px;left:26px;font-family:var(--disp);font-size:72px;color:var(--yel);-webkit-text-stroke:2px var(--ink);text-shadow:4px 4px 0 var(--ink)}
+
+/* ABOUT */
+.check{height:48px;background:conic-gradient(var(--yel) 25%,var(--blue) 0 50%,var(--yel) 0 75%,var(--blue) 0) 0 0/48px 48px}
+.about{background:var(--blue);color:#fff;padding:96px 0;text-align:center;position:relative;overflow:hidden}
+.about .script{font-family:"Brush Script MT","Segoe Script",cursive;font-size:56px;color:var(--yel);transform:rotate(-6deg);display:inline-block;margin-bottom:16px}
+.about h2{font-size:clamp(32px,4.2vw,52px);max-width:900px;margin:0 auto;line-height:1.05}
+.about h2 em{font-style:normal;color:var(--yel)}
+.about .stats{display:flex;justify-content:center;gap:64px;margin:48px 0 40px;flex-wrap:wrap}
+.about .stats b{display:block;font-family:var(--disp);font-size:64px;color:var(--yel);line-height:1;font-weight:400}
+.about .stats span{font-size:14px;text-transform:uppercase;letter-spacing:1px;opacity:.85}
+.btn-dark{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:#fff;padding:14px 28px;border-radius:999px;font-weight:800;text-transform:uppercase;font-size:14px;min-height:44px}
+.btn-dark:hover{background:var(--pink)}
+.float{position:absolute;width:150px;border-radius:12px;border:3px solid var(--ink);box-shadow:6px 6px 0 var(--ink)}
+.f1{left:5%;top:140px;transform:rotate(-8deg)}
+.f2{right:5%;bottom:60px;transform:rotate(7deg)}
+
+/* BOOK */
+.book{padding:80px 0}
+.bgrid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.book h2{font-size:clamp(64px,8vw,104px)}
+.book h2 span{color:var(--pink)}
+.info{margin-top:28px;display:grid;gap:16px}
+.info div{display:flex;gap:14px;align-items:flex-start;font-size:16px}
+.info i{flex:0 0 40px;height:40px;border-radius:50%;background:var(--yel);border:2px solid var(--ink);display:grid;place-items:center;font-style:normal;font-weight:800}
+.info b{display:block}
+form{background:#fff;border:3px solid var(--ink);border-radius:16px;padding:32px;box-shadow:8px 8px 0 var(--pink)}
+form h3{font-family:var(--disp);font-size:36px;font-weight:400;text-transform:uppercase;margin-bottom:20px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+label{display:block;font-size:14px;font-weight:700;margin-bottom:16px}
+input,select{width:100%;margin-top:6px;border:2px solid var(--ink);border-radius:10px;padding:12px;font:inherit;font-size:16px;background:var(--cream);min-height:48px}
+form button{width:100%;border:2px solid var(--ink);background:var(--yel);font-weight:800;text-transform:uppercase;font-size:16px;padding:14px;border-radius:999px;cursor:pointer;box-shadow:4px 4px 0 var(--ink);margin-top:4px}
+form button:hover{background:var(--pink);color:#fff}
+.ok{display:none;margin-top:16px;background:#E8F1EC;color:#1d6b41;padding:12px;border-radius:10px;font-weight:700}
+
+/* SOCIAL */
+.social{background:var(--cream);padding:0 0 80px}
+.sgrid{display:grid;grid-template-columns:auto repeat(4,1fr);gap:16px;align-items:stretch}
+.vert{writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--disp);font-size:56px;text-transform:uppercase;line-height:1}
+.tile{border-radius:14px;border:3px solid var(--ink);overflow:hidden;aspect-ratio:1;position:relative;display:grid;place-items:end start;padding:16px}
+.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.tile:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.45),rgba(0,0,0,0) 60%)}
+.tile span{position:relative;z-index:1;font-family:var(--disp);font-size:28px;color:#fff;text-transform:uppercase;text-shadow:3px 3px 0 var(--ink)}
+.tile.c1{background:var(--pink)}.tile.c2{background:var(--yel)}.tile.c2 span{color:var(--ink);text-shadow:none}
+
+/* FOOTER */
+footer{background:var(--ink);color:#fff;padding:56px 0 32px}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px}
+footer h4{color:var(--yel);font-size:14px;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+footer li{list-style:none;font-size:15px;opacity:.85;margin-bottom:6px}
+footer .big{font-family:var(--disp);font-size:56px;color:var(--yel);line-height:.9}
+.legal{border-top:1px solid rgba(255,255,255,.2);margin-top:40px;padding-top:20px;font-size:14px;opacity:.6;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+/* MOBILE */
+@media(max-width:900px){
+ .links,.nav-cta{display:none}.burger{display:block}
+ nav.open .links{display:flex;flex-direction:column;position:absolute;top:76px;right:20px;background:var(--blue);padding:16px;border-radius:12px;border:2px solid #fff}
+ .wrap{padding:0 20px}
+ .hero{min-height:640px}
+ .hero h1{-webkit-text-stroke:2px var(--ink);text-shadow:5px 5px 0 var(--ink)}
+ .hero .wrap{grid-template-columns:1fr;padding-top:96px;padding-bottom:64px}
+ .hero-photo{justify-self:center;max-width:420px}
+ .badge{width:104px;height:104px;font-size:19px;left:-8px;bottom:-24px}
+ .intro-grid,.bgrid,.pgrid{grid-template-columns:1fr}
+ .p-loyal{grid-row:auto}
+ .doodle{max-width:200px}
+ .intro-grid p{font-size:19px}
+ .cards{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:72%;overflow-x:auto;scroll-snap-type:x mandatory;padding:8px 4px 16px}
+ .card{scroll-snap-align:center}
+ .tabs{margin-left:0}
+ .promo-hero{height:360px}
+ .float{display:none}
+ .about .stats{gap:32px}
+ .sgrid{grid-template-columns:1fr 1fr}
+ .vert{writing-mode:horizontal-tb;transform:none;grid-column:1/-1;font-size:48px}
+ .fgrid{grid-template-columns:1fr 1fr}
+ .row{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+ <defs>
+  <symbol id="mask" viewBox="0 0 64 64">
+   <path d="M32 3C16 3 8 16 8 30c0 16 10 31 24 31s24-15 24-31C56 16 48 3 32 3z" fill="#E8317A" stroke="#1A1A1A" stroke-width="3"/>
+   <path d="M32 3v14M20 8l6 10M44 8l-6 10" stroke="#FFC531" stroke-width="3" fill="none"/>
+   <path d="M13 28c4-6 11-6 15 0-4 6-11 6-15 0zM36 28c4-6 11-6 15 0-4 6-11 6-15 0z" fill="#fff" stroke="#1A1A1A" stroke-width="2.5"/>
+   <circle cx="20.5" cy="28" r="2.6" fill="#1A1A1A"/><circle cx="43.5" cy="28" r="2.6" fill="#1A1A1A"/>
+   <path d="M22 44c6 5 14 5 20 0" stroke="#1A1A1A" stroke-width="3" fill="#fff" stroke-linecap="round"/>
+   <path d="M10 22l10 2M54 22l-10 2" stroke="#FFC531" stroke-width="3"/>
+  </symbol>
+  <symbol id="taco" viewBox="0 0 40 40"><path d="M4 30a16 16 0 0 1 32 0z" fill="#FFC531" stroke="#1A1A1A" stroke-width="2.5"/><path d="M9 26c3-4 6-4 8-1 2-4 6-4 8 0 2-3 5-3 7 1" stroke="#E23B2B" stroke-width="2.5" fill="none"/></symbol>
+ </defs>
+</svg>
+
+<nav id="nav">
+ <div class="wrap">
+  <a href="#" class="logo" aria-label="Lucha Taco home"><svg><use href="#mask"/></svg>LUCHA TACO</a>
+  <div class="links"><a href="#menu">Menu</a><a href="#promos">Deals</a><a href="#about">Our story</a><a href="#book">Contact</a></div>
+  <a href="#book" class="cta nav-cta">Book a table</a>
+  <button class="burger" aria-label="Open menu" onclick="document.getElementById('nav').classList.toggle('open')"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+ </div>
+</nav>
+
+<header class="hero">
+ <div class="wrap">
+  <div>
+  <span class="kicker">Mexico City street tacos · since 2019</span>
+  <h1 class="disp">Lucha<span>Taco!</span></h1>
+  <p>Fresh tortillas pressed by hand, al pastor carved straight off the spit and salsas that hit like a body slam.</p>
+  <div class="btns"><a class="cta" href="#menu">See the menu</a><a class="btn-ghost" href="#book">Order delivery</a></div>
+  </div>
+  <div class="hero-photo"><img src="images/hero-tacos.svg" alt="Blue plate of three tacos al pastor with pineapple, onion, cilantro and lime">
+ <a href="#book" class="badge" aria-label="Quick order">
+  <svg class="badge-ring" viewBox="0 0 200 200" aria-hidden="true"><defs><path id="c" d="M100,100 m-88,0 a88,88 0 1,1 176,0 a88,88 0 1,1 -176,0"/></defs><text font-size="15" font-weight="800" fill="#1A1A1A" letter-spacing="4" font-family="system-ui,sans-serif"><textPath href="#c">HOT · FRESH · LOUD · HOT · FRESH · LOUD · </textPath></text></svg>
+  <span>Quick<br>order<small>30 MIN DELIVERY</small></span>
+ </a>
+  </div>
+ </div>
+
+</header>
+
+<svg class="torn torn-top" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40V22l30-9 22 7 31-12 26 10 18-6 35 9 20-11 28 8 25-10 30 12 19-5 33 8 22-13 27 9 34-6 20 10 26-12 31 7 24-8 29 11 21-7 33 6 24-12 30 10 22-4 28 9 31-11 20 6 34-8 26 11 24-9 30 7 21-10 33 12 25-6 28 5 22-11 31 9 24-6 29 8 22-10 36 7L1200 22V40z" fill="#FFF7EA"/></svg>
+
+<main>
+<section class="paper intro">
+ <div class="wrap">
+  <div class="pills"><a href="#menu">Menu</a><a href="#promos">Deals</a><a href="#book">Book</a><a href="#book">Delivery</a></div>
+  <div class="intro-grid">
+   <p><span class="hl">Lucha Taco</span> is a tiny taquería with a big voice. We cook the way the stands in Mexico City do — fast, loud and with zero shortcuts. Corn is nixtamalized in-house every morning, meats are marinated for 24 hours and every salsa is made from scratch. Grab a stool, squeeze some lime and step into the ring.</p>
+   <svg class="doodle" viewBox="0 0 220 220" aria-hidden="true" fill="none" stroke="#1A1A1A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M110 18c-48 0-74 38-74 82 0 52 32 100 74 100s74-48 74-100c0-44-26-82-74-82z" fill="#FFC531"/>
+    <path d="M110 18v44M74 32l18 32M146 32l-18 32" stroke="#E8317A" stroke-width="6"/>
+    <path d="M52 92c14-20 38-20 50 0-12 20-36 20-50 0zM118 92c12-20 36-20 50 0-14 20-38 20-50 0z" fill="#fff"/>
+    <circle cx="77" cy="92" r="8" fill="#1A1A1A"/><circle cx="143" cy="92" r="8" fill="#1A1A1A"/>
+    <path d="M76 146c20 18 48 18 68 0" fill="#fff"/>
+    <path d="M18 60l12 8M10 100h14M200 60l-12 8M210 100h-14" stroke="#E8317A"/>
+   </svg>
+  </div>
+ </div>
+</section>
+
+<div class="paper" style="padding-bottom:8px"><div class="marquee" aria-hidden="true"><div class="marquee-track">
+ <span>Al pastor</span><span class="s">★</span><span>Birria</span><span class="s">★</span><span>Elote</span><span class="s">★</span><span>Churros</span><span class="s">★</span><span>Horchata</span><span class="s">★</span><span>Salsa roja</span><span class="s">★</span>
+ <span>Al pastor</span><span class="s">★</span><span>Birria</span><span class="s">★</span><span>Elote</span><span class="s">★</span><span>Churros</span><span class="s">★</span><span>Horchata</span><span class="s">★</span><span>Salsa roja</span><span class="s">★</span>
+</div></div></div>
+
+<section class="paper menu" id="menu">
+ <div class="wrap">
+  <div class="sec-head">
+   <h2 class="disp">Menu</h2>
+   <p>Authentic Mexico City street food, cooked to order with family recipes and a whole lot of love.</p>
+   <div class="tabs" role="tablist"><button class="on">Tacos</button><button>Sides</button><button>Sweet</button></div>
+  </div>
+  <div class="cards">
+   <article class="card"><div class="ph"><img src="images/al-pastor.svg" alt="Three tacos al pastor with pineapple and cilantro"></div><h3>Al Pastor</h3><p class="desc">Spit-roasted pork, charred pineapple, onion, cilantro. 3 tacos.</p><div class="price">$12</div></article>
+   <article class="card"><div class="ph"><img src="images/quesabirria.svg" alt="Crispy birria tacos with consommé"></div><h3>Quesabirria</h3><p class="desc">Slow-braised beef, melted Oaxaca cheese, consommé for dipping.</p><div class="price">$15</div></article>
+   <article class="card"><div class="ph"><img src="images/elote.svg" alt="Mexican street corn with cotija and chili"></div><h3>Elote</h3><p class="desc">Grilled corn, lime mayo, cotija cheese and tajín.</p><div class="price">$6</div></article>
+   <article class="card"><div class="ph"><img src="images/churros.svg" alt="Churros with chocolate dipping sauce"></div><h3>Churros</h3><p class="desc">Cinnamon sugar churros with thick Mexican hot chocolate.</p><div class="price">$7</div></article>
+  </div>
+  <div class="menu-more"><a class="btn-dark" href="#">Full menu →</a></div>
+ </div>
+</section>
+
+<svg class="torn torn-bot" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" style="background:var(--blue)"><path d="M0 0v18l28 10 24-8 30 12 22-9 34 7 20-10 31 9 26-7 29 11 22-12 33 8 24-6 28 10 21-9 35 7 26-11 30 9 22-5 31 10 24-8 29 6 33-12 20 9 28-6 30 11 24-10 31 7 22-9 34 12 26-7 29 5 21-11 33 8 25-6 30 10 22-9 28 7 34-8 24 11 30-7L1200 18V0z" fill="#FFF7EA"/></svg>
+
+<section id="promos">
+ <div class="promo-hero">
+  <h2 class="disp">Deals</h2><h2 class="disp solid" aria-hidden="true">Deals</h2>
+  <span class="note">*Ask your server for full deal details</span>
+ </div>
+ <div class="promos paper">
+  <div class="wrap pgrid">
+   <div class="pcard p-loyal">
+    <div><svg width="110" height="110"><use href="#mask"/></svg></div>
+    <div>
+     <h3 class="disp">Luchador Club</h3>
+     <div class="stamps" aria-label="Loyalty card: 4 of 5 stamps">
+      <div class="stamp on"><svg><use href="#taco"/></svg></div><div class="stamp on"><svg><use href="#taco"/></svg></div><div class="stamp on"><svg><use href="#taco"/></svg></div><div class="stamp on"><svg><use href="#taco"/></svg></div><div class="stamp free">Free</div>
+     </div>
+     <p>Collect a stamp with every order. Five stamps and your next plate of tacos is on us.</p>
+    </div>
+   </div>
+   <div class="pcard p-lunch"><span class="time">12:00 – 16:00</span><h3 class="disp">Lunch Combo</h3><p>Any 3 tacos, a side and a drink for $16, Monday to Friday.</p></div>
+   <div class="pcard p-tues"><span class="big">2+1</span><h3 class="disp">Taco Tuesday</h3><p>Buy two tacos, get the third free. Plus half-price horchata all night.</p></div>
+  </div>
+ </div>
+</section>
+
+<div class="check" aria-hidden="true"></div>
+<section class="about" id="about">
+ <img class="float f1" src="images/elote.svg" alt="">
+ <img class="float f2" src="images/churros.svg" alt="">
+ <div class="wrap">
+  <span class="script">Lucha Taco</span>
+  <h2 class="disp">Started as <em>one cart</em> and a stubborn idea: real street tacos should be cheap, fast and <em>seriously</em> delicious. Five years later, the line still wraps around the block.</h2>
+  <div class="stats"><div><b>1M+</b><span>Tacos served</span></div><div><b>9</b><span>House salsas</span></div><div><b>24h</b><span>Marinated meats</span></div></div>
+  <a class="btn-dark" href="#book">More about us →</a>
+ </div>
+</section>
+<div class="check" aria-hidden="true"></div>
+
+<section class="paper book" id="book">
+ <div class="wrap bgrid">
+  <div>
+   <h2 class="disp">Come<br><span>hungry.</span></h2>
+   <div class="info">
+    <div><i>📍</i><span><b>Find us</b>214 Mission Street, San Francisco, CA</span></div>
+    <div><i>🕑</i><span><b>Open daily</b>Sun–Thu 11:00 – 23:00 · Fri–Sat 11:00 – 02:00</span></div>
+    <div><i>📞</i><span><b>Call us</b>+1 (415) 555-0142</span></div>
+   </div>
+  </div>
+  <form onsubmit="event.preventDefault();this.querySelector('.ok').style.display='block'">
+   <h3>Book a table</h3>
+   <div class="row"><label>Name<input required placeholder="Your name"></label><label>Phone<input required type="tel" placeholder="+1 ..."></label></div>
+   <div class="row"><label>Date<input required type="date"></label><label>Guests<select><option>2 people</option><option>3 people</option><option>4 people</option><option>5+ people</option></select></label></div>
+   <button type="submit">Reserve my spot</button>
+   <div class="ok" role="status">¡Gracias! Your table is booked. See you soon.</div>
+  </form>
+ </div>
+</section>
+
+<section class="social">
+ <div class="wrap sgrid">
+  <div class="vert">Follow us</div>
+  <a class="tile" href="#"><img src="images/social-instagram.svg" alt="Bowls of house salsas"><span>Instagram</span></a>
+  <a class="tile" href="#"><img src="images/social-tiktok.svg" alt="Taquero carving al pastor off the spit"><span>TikTok</span></a>
+  <a class="tile" href="#"><img src="images/social-facebook.svg" alt="Friends toasting with tacos"><span>Facebook</span></a>
+  <a class="tile" href="#"><img src="images/social-handle.svg" alt="Luchador mask on the taquería wall"><span>@luchataco</span></a>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="wrap">
+  <div class="fgrid">
+   <div><div class="big">Lucha<br>Taco!</div><p style="opacity:.7;margin-top:12px;font-size:14px">See you in the ring.</p></div>
+   <div><h4>Visit</h4><ul><li>214 Mission Street</li><li>San Francisco, CA</li></ul></div>
+   <div><h4>Hours</h4><ul><li>Sun–Thu 11–23</li><li>Fri–Sat 11–02</li></ul></div>
+   <div><h4>Contact</h4><ul><li>+1 (415) 555-0142</li><li>hola@luchataco.com</li></ul></div>
+  </div>
+  <div class="legal"><span>© 2026 Lucha Taco. All rights reserved.</span><span>Made with salsa 🌶️</span></div>
+ </div>
+</footer>
+<script>
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tabs button').forEach(x=>x.classList.remove('on'));b.classList.add('on')});
+</script>
+</body>
+</html>

@@ -2,11 +2,26 @@
 
 Website concepts for fictional brands, designed and built as single-page sites.
 
+**Live:** https://khadrisaad.github.io/portfolio/
+
 | Project | Industry | Folder |
 | --- | --- | --- |
+| **VANTA** | Car detailing · Mobile service | [`vanta/`](vanta/) |
 | **Lucha Taco!** | Restaurant · Mexico City street tacos | [`lucha-taco/`](lucha-taco/) |
 | **Aurelle** | Real estate · Luxury coastal homes | [`aurelle/`](aurelle/) |
 | **MOKKA** | Cafe · Coffee bar & frappés | [`mokka/`](mokka/) |
+
+## VANTA
+
+A dark, glossy site for a premium mobile car detailing studio. The hero puts a thin, glowing "SHOWROOM" wordmark under a studio light with a serif "finish." over a black coupe, plus a soft light that follows the cursor across the paint and a gloss sweep on load.
+
+**Sections:** hero · price strip · services marquee · services cards · drag-to-compare before / after · "We come to you" with live ETA card · booking builder · reviews · FAQ · CTA · footer
+
+**Interactions:** before / after slider (drag, hover, keyboard, auto hint), live price builder (vehicle size, package, add-ons, day and time) that opens a pre-filled text message to book, sticky mobile booking bar.
+
+**Responsive:** desktop (up to 1920px+) and mobile (390px).
+
+![VANTA full page preview](vanta/images/preview-full-page.svg)
 
 ## Lucha Taco!
 

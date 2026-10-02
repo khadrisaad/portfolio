@@ -63,6 +63,7 @@ h1 .w{display:inline-block;position:relative;cursor:default}
 .bm{display:grid;place-items:center;font-size:.34em;letter-spacing:.02em;font-family:Body,sans-serif;font-weight:500}
 .bm.l{background:#E6197A;color:#FFD400;font-weight:500;font-style:italic;text-transform:uppercase}
 .bm.a{background:#1E2433;color:#fff;font-family:Serif,serif;font-weight:300;letter-spacing:.12em;text-transform:uppercase}
+.bm.v{background:#0A0A0B;color:#fff;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
 .bm.m{background:#A3B13C;color:#F6ECDE;text-transform:uppercase;letter-spacing:.06em}
 /* Figma selection */
 .sel{position:absolute;left:0;top:0;border:1.5px solid var(--blue);pointer-events:none;z-index:3;transition:transform .55s var(--ease),width .55s var(--ease),height .55s var(--ease),opacity .3s;opacity:0}
@@ -200,8 +201,8 @@ footer .logo{color:var(--ink)}
  <div class="kicker"><b>Saad</b> · Web designer &amp; developer</div>
  <h1 class="serif" id="h1">
   <span class="w">Hi,</span> <span class="w">I’m</span> <span class="w it">Saad</span><span class="chip hi" aria-hidden="true"><span>👋</span></span><br>
-  <span class="w">I</span> <span class="w">design</span> <span class="w it" id="wWeb">websites</span><span class="chip sites" id="chipSites" aria-hidden="true"><img class="on" src="images/mokka-thumb.svg" alt=""><img src="images/aurelle-thumb.svg" alt=""><img src="images/lucha-thumb.svg" alt=""></span><br>
-  <span class="w">that</span> <span class="w">make</span> <span class="w it">brands</span><span class="chip brands" id="chipBrands" aria-hidden="true"><span class="bm m on">Mokka</span><span class="bm a">Aurelle</span><span class="bm l">Lucha!</span></span><br>
+  <span class="w">I</span> <span class="w">design</span> <span class="w it" id="wWeb">websites</span><span class="chip sites" id="chipSites" aria-hidden="true"><img class="on" src="images/vanta-thumb.svg" alt=""><img src="images/mokka-thumb.svg" alt=""><img src="images/aurelle-thumb.svg" alt=""><img src="images/lucha-thumb.svg" alt=""></span><br>
+  <span class="w">that</span> <span class="w">make</span> <span class="w it">brands</span><span class="chip brands" id="chipBrands" aria-hidden="true"><span class="bm v on">Vanta</span><span class="bm m">Mokka</span><span class="bm a">Aurelle</span><span class="bm l">Lucha!</span></span><br>
   <span class="w">impossible</span> <span class="w">to</span> <span class="w">ignore.</span>
   <div class="sel" id="sel"><i></i><i></i><i></i><i></i><b id="selLabel">0 × 0</b></div>
   <div class="cur" id="cur"><svg width="18" height="20" viewBox="0 0 18 20"><path d="M1 1l15 7.5-6.6 1.8L6.2 18z" fill="#FF5C8A" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg><span>Saad</span></div>
@@ -215,9 +216,25 @@ footer .logo{color:var(--ink)}
 
 <section class="work" id="work">
  <div class="wrap">
-  <div class="whead reveal"><h2 class="serif">Some projects<br>I <span class="it">worked on</span></h2><p>Three very different brands, three very different moods. Each site is fully designed and built from scratch, and works on every screen.</p></div>
+  <div class="whead reveal"><h2 class="serif">Some projects<br>I <span class="it">worked on</span></h2><p>Four very different brands, four very different moods. Each site is fully designed and built from scratch, and works on every screen.</p></div>
 
-  <article class="proj" data-bg="#F4E1E9" style="--pc:#E6197A">
+    <article class="proj" data-bg="#E2E2E5" style="--pc:#FF5A1F">
+   <div class="stage reveal">
+    <a class="browser" href="vanta/index.html" target="_blank" rel="noopener"><div class="bar"><i></i><i></i><i></i><span class="url">🔒 vantadetail.co</span></div><div class="screen"><img src="images/vanta-desk.svg" alt="VANTA car detailing website, full page"></div></a>
+    <div class="phone"><div class="pscreen"><img src="images/vanta-mob.svg" alt="VANTA website on a phone"></div></div>
+   </div>
+   <div class="info reveal">
+    <div class="cat">Car detailing · Mobile service</div>
+    <h3 class="serif">VANTA</h3>
+    <p>A dark, glossy site for a mobile detailing studio. A drag-to-compare before and after, a light that follows your cursor across the paint, and a booking builder that prices the job live and texts the owner.</p>
+    <div class="tags"><span>Before / after slider</span><span>Live price builder</span><span>Book by text</span></div>
+    <div class="palette"><em>Palette</em><i style="background:#0A0A0B"></i><i style="background:#FF5A1F"></i><i style="background:#1A1A1D"></i><i style="background:#F3F2EF"></i></div>
+    <a class="btn dark" href="vanta/index.html" target="_blank" rel="noopener">View live site <i>↗</i></a>
+    <div class="hint"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v18M7 8l5-5 5 5M7 16l5 5 5-5"/></svg>Hover the screen and move up and down to explore it</div>
+   </div>
+  </article>
+
+<article class="proj flip" data-bg="#F4E1E9" style="--pc:#E6197A">
    <div class="stage reveal">
     <a class="browser" href="lucha-taco/index.html" target="_blank" rel="noopener"><div class="bar"><i></i><i></i><i></i><span class="url">🔒 luchataco.com</span></div><div class="screen"><img src="images/lucha-desk.svg" alt="Lucha Taco website, full page"></div></a>
     <div class="phone"><div class="pscreen"><img src="images/lucha-mob.svg" alt="Lucha Taco website on a phone"></div></div>
@@ -233,7 +250,7 @@ footer .logo{color:var(--ink)}
    </div>
   </article>
 
-  <article class="proj flip" data-bg="#E1E4EA" style="--pc:#1E2433">
+  <article class="proj" data-bg="#E1E4EA" style="--pc:#1E2433">
    <div class="stage reveal">
     <a class="browser" href="aurelle/index.html" target="_blank" rel="noopener"><div class="bar"><i></i><i></i><i></i><span class="url">🔒 aurelle.estate</span></div><div class="screen"><img src="images/aurelle-desk.svg" alt="Aurelle real estate website, full page"></div></a>
     <div class="phone"><div class="pscreen"><img src="images/aurelle-mob.svg" alt="Aurelle website on a phone"></div></div>
@@ -249,7 +266,7 @@ footer .logo{color:var(--ink)}
    </div>
   </article>
 
-  <article class="proj" data-bg="#EEE2D2" style="--pc:#A3B13C">
+  <article class="proj flip" data-bg="#EEE2D2" style="--pc:#A3B13C">
    <div class="stage reveal">
     <a class="browser" href="mokka/index.html" target="_blank" rel="noopener"><div class="bar"><i></i><i></i><i></i><span class="url">🔒 mokka.coffee</span></div><div class="screen"><img src="images/mokka-desk.svg" alt="MOKKA café website, full page"></div></a>
     <div class="phone"><div class="pscreen"><img src="images/mokka-mob.svg" alt="MOKKA website on a phone"></div></div>
